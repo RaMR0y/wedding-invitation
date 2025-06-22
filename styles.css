@@ -1,0 +1,1011 @@
+:root {
+    --primary-color: #D4AF37;    /* Royal Gold */
+    --primary-light: #F4E4BC;    /* Light Gold */
+    --primary-lighter: #FFF8E7;  /* Very Light Gold */
+    --primary-dark: #B8860B;     /* Dark Goldenrod */
+    --primary-darker: #8B6914;   /* Darker Gold */
+    --secondary-color: #8B0000;  /* Dark Red */
+    --secondary-light: #CD5C5C;  /* Indian Red */
+    --secondary-lighter: #FFB6C1; /* Light Red */
+    --secondary-dark: #4B0014;   /* Deep Burgundy */
+    --secondary-darker: #2B0000; /* Darker Burgundy */
+    --accent-color: #FFD700;     /* Bright Gold */
+    --text-color: #4B0014;       /* Deep Burgundy for text */
+    --background-color: #FFF0E0; /* Warm Gold Cream */
+    --pattern-color-1: rgba(212, 175, 55, 0.15);  /* Gold with opacity */
+    --pattern-color-2: rgba(139, 0, 0, 0.1);      /* Red with opacity */
+    --pattern-color-3: rgba(184, 134, 11, 0.1);   /* Dark Gold with opacity */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.invitation-card {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.card-content {
+    background: linear-gradient(
+        135deg,
+        var(--primary-lighter) 0%,
+        var(--primary-light) 100%
+    );
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(139, 0, 0, 0.15);
+    position: relative;
+    overflow: visible;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.ornament {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.1;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23d4af37" d="M50,0 C50,0 0,50 0,50 C0,50 50,100 50,100 C50,100 100,50 100,50 C100,50 50,0 50,0 Z"/></svg>');
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5em;
+    color: var(--secondary-color);
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.separator-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 15px;
+}
+
+.separator-line {
+    width: 100px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 50%,
+        var(--primary-color) 100%
+    );
+}
+
+.date, .location {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    color: var(--secondary-dark);
+    margin: 10px 0;
+}
+
+.floral-divider {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.floral-divider i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.couple-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px 0;
+    gap: 30px;
+    padding: 20px;
+}
+
+.bride, .groom {
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+    background: rgba(212, 175, 55, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bride::before,
+.groom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        var(--primary-color) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.bride:hover::before,
+.groom:hover::before {
+    transform: translateX(100%);
+}
+
+.name-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.name-container h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary-color);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 1.4em;
+    color: var(--primary-darker);
+    margin: 10px 0;
+}
+
+.parents {
+    font-size: 0.9em;
+    color: var(--text-color);
+    font-style: italic;
+}
+
+.couple-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-container i {
+    color: var(--accent-color);
+    font-size: 2em;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.heart-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: glow 1.5s ease-in-out infinite;
+}
+
+.event-details {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px 0;
+    gap: 30px;
+}
+
+.detail-item {
+    text-align: center;
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(
+        135deg,
+        var(--primary-lighter) 0%,
+        var(--primary-light) 100%
+    );
+    border: 1px solid var(--primary-color);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail-item:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(
+        135deg,
+        var(--primary-light) 0%,
+        var(--primary-color) 100%
+    );
+}
+
+.icon-wrapper {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-wrapper i {
+    font-size: 1.8em;
+    color: var(--secondary-color);
+}
+
+.icon-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.1;
+}
+
+.detail-item h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: var(--primary-darker);
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--primary-color);
+}
+
+.footer p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-top: 15px;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes glow {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.2); opacity: 0.1; }
+}
+
+.photo-frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 25px;
+    perspective: 1000px;
+}
+
+.photo-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+    animation: float 6s ease-in-out infinite;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.photo-container:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(212, 175, 55, 0.2),
+        rgba(139, 0, 0, 0.15)
+    );
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.frame-decoration {
+    position: absolute;
+    background: var(--primary-color);
+    opacity: 0.8;
+}
+
+.frame-decoration.top,
+.frame-decoration.bottom {
+    width: 100%;
+    height: 3px;
+    left: 0;
+}
+
+.frame-decoration.left,
+.frame-decoration.right {
+    width: 3px;
+    height: 100%;
+    top: 0;
+}
+
+.frame-decoration.top {
+    top: -10px;
+    transform: rotate(-2deg);
+}
+
+.frame-decoration.bottom {
+    bottom: -10px;
+    transform: rotate(2deg);
+}
+
+.frame-decoration.left {
+    left: -10px;
+    transform: rotate(2deg);
+}
+
+.frame-decoration.right {
+    right: -10px;
+    transform: rotate(-2deg);
+}
+
+.frame-decoration::before,
+.frame-decoration::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+}
+
+.frame-decoration.top::before {
+    left: 20%;
+    top: -4px;
+}
+
+.frame-decoration.top::after {
+    right: 20%;
+    top: -4px;
+}
+
+.frame-decoration.bottom::before {
+    left: 20%;
+    bottom: -4px;
+}
+
+.frame-decoration.bottom::after {
+    right: 20%;
+    bottom: -4px;
+}
+
+.frame-decoration.left::before {
+    top: 20%;
+    left: -4px;
+}
+
+.frame-decoration.left::after {
+    bottom: 20%;
+    left: -4px;
+}
+
+.frame-decoration.right::before {
+    top: 20%;
+    right: -4px;
+}
+
+.frame-decoration.right::after {
+    bottom: 20%;
+    right: -4px;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-10px) rotate(1deg);
+    }
+}
+
+.detail-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(212, 175, 55, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.detail-item:hover::after {
+    opacity: 1;
+}
+
+.click-hint {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.detail-item:hover .click-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animated-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Specific positioning for header and footer images */
+.top-section .cover-image {
+    object-position: center;
+}
+
+.bottom-section .cover-image {
+    object-position: center 75%; /* This will emphasize the bottom portion of the image */
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(139, 0, 0, 0.7),
+        rgba(218, 165, 32, 0.5)
+    );
+    z-index: 2;
+}
+
+.welcome-text, .farewell-text {
+    position: relative;
+    z-index: 3;
+    color: var(--gold-light);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    max-width: 800px;
+    background: rgba(139, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--gold-light);
+}
+
+.welcome-text h1, .farewell-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.welcome-text p, .farewell-text p {
+    font-size: 1.5rem;
+    color: var(--gold-lighter);
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    color: var(--gold-light);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    background: rgba(139, 0, 0, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold-light);
+}
+
+.bottom-section .scroll-hint {
+    bottom: auto;
+    top: 2rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+}
+
+/* Remove old animation styles that are no longer needed */
+.pattern-grid,
+.geometric-shape,
+.floating-hearts,
+.floating-flowers {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-text h1, .farewell-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .welcome-text p, .farewell-text p {
+        font-size: 1.2rem;
+    }
+    
+    .scroll-hint {
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .invitation-card {
+        padding: 30px 15px;
+    }
+
+    .card-content {
+        padding: 20px;
+        background: linear-gradient(
+            135deg,
+            var(--primary-lighter) 0%,
+            var(--primary-light) 100%
+        );
+    }
+
+    .names {
+        font-size: 2.5em;
+    }
+
+    .couple-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bride, .groom {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .event-details {
+        flex-direction: column;
+    }
+
+    .ornament {
+        width: 100px;
+        height: 100px;
+    }
+
+    .photo-frame {
+        width: 160px;
+        height: 160px;
+    }
+
+    .shape-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape-square {
+        width: 70px;
+        height: 70px;
+    }
+
+    .shape-triangle {
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 87px solid var(--accent-color);
+    }
+
+    .corner-decoration {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* RSVP Section Styles */
+.rsvp-section {
+    margin: 60px 0;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.rsvp-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin: 20px 0 10px;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+.rsvp-subtitle {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-darker);
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.rsvp-button {
+    background: linear-gradient(
+        135deg,
+        var(--secondary-color) 0%,
+        var(--secondary-dark) 100%
+    );
+    color: var(--primary-lighter);
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.rsvp-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.rsvp-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3);
+}
+
+.rsvp-button:hover::before {
+    transform: translateX(100%);
+}
+
+.rsvp-button i {
+    font-size: 0.9em;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Modal Styles */
+.rsvp-modal {
+    background: linear-gradient(
+        135deg,
+        var(--primary-lighter) 0%,
+        var(--primary-light) 100%
+    ) !important;
+    border: 2px solid var(--primary-color) !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    max-width: 600px !important;
+    width: 90% !important;
+}
+
+.rsvp-modal-title {
+    font-family: 'Dancing Script', cursive !important;
+    color: var(--secondary-color) !important;
+    font-size: 2.2em !important;
+    margin-bottom: 20px !important;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3) !important;
+}
+
+.rsvp-modal-close {
+    color: var(--secondary-color) !important;
+    font-size: 1.5em !important;
+    transition: all 0.3s ease !important;
+}
+
+.rsvp-modal-close:hover {
+    transform: rotate(90deg) !important;
+    color: var(--secondary-dark) !important;
+}
+
+.rsvp-success-modal {
+    background: linear-gradient(
+        135deg,
+        var(--primary-lighter) 0%,
+        var(--primary-light) 100%
+    ) !important;
+    border: 2px solid var(--primary-color) !important;
+    border-radius: 20px !important;
+}
+
+/* Form Styles (inside modal) */
+.rsvp-form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    color: var(--secondary-color);
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.1);
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.attendance-options {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.radio-label:hover {
+    background: var(--primary-lighter);
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-custom {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom {
+    border-color: var(--secondary-color);
+}
+
+.radio-text {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+.submit-button {
+    background: linear-gradient(
+        135deg,
+        var(--secondary-color) 0%,
+        var(--secondary-dark) 100%
+    );
+    color: var(--primary-lighter);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.2);
+}
+
+.submit-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.submit-button i {
+    font-size: 1.1em;
+    transition: transform 0.3s ease;
+}
+
+.submit-button:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rsvp-button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+    }
+    
+    .attendance-options {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .radio-label {
+        padding: 8px 15px;
+    }
+    
+    .rsvp-modal {
+        padding: 20px !important;
+    }
+    
+    .rsvp-modal-title {
+        font-size: 1.8em !important;
+    }
+} 

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panchami & Ram - Wedding Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="animated-section top-section">
+        <div class="section-image">
+            <img src="Photos/Header.jpg" alt="Wedding Photo" class="cover-image">
+            <div class="image-overlay"></div>
+        </div>
+        <div class="welcome-text">
+            <h1>Welcome to Our Wedding</h1>
+            <p>Scroll down to discover our story</p>
+        </div>
+        <div class="scroll-hint">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+
+    <div class="invitation-card">
+        <div class="card-content">
+            <div class="corner-decoration corner-top-left"></div>
+            <div class="corner-decoration corner-top-right"></div>
+            <div class="corner-decoration corner-bottom-left"></div>
+            <div class="corner-decoration corner-bottom-right"></div>
+            <div class="geometric-shape shape-circle" style="top: -75px; right: -75px;"></div>
+            <div class="geometric-shape shape-square" style="bottom: -50px; left: -50px;"></div>
+            <div class="ornament top-left"></div>
+            <div class="ornament top-right"></div>
+            
+            <div class="header">
+                <div class="floral-divider top">
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h1 class="names">Panchami & Ram</h1>
+                <div class="separator">
+                    <span class="separator-dot"></span>
+                    <span class="separator-line"></span>
+                    <span class="separator-dot"></span>
+                </div>
+                <p class="date">31st July 2025</p>
+                <p class="location">Taj Mahal</p>
+                <div class="floral-divider bottom">
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                </div>
+            </div>
+
+            <div class="couple-info">
+                <div class="bride">
+                    <div class="photo-frame">
+                        <div class="photo-container">
+                            <img src="bride.jpg" alt="Panchami Nandi" class="couple-photo">
+                            <div class="photo-overlay"></div>
+                        </div>
+                        <div class="frame-decoration top"></div>
+                        <div class="frame-decoration bottom"></div>
+                        <div class="frame-decoration left"></div>
+                        <div class="frame-decoration right"></div>
+                    </div>
+                    <div class="name-container">
+                        <h2>The Bride</h2>
+                        <div class="name-decoration left"></div>
+                        <div class="name-decoration right"></div>
+                    </div>
+                    <p class="name">Panchami Nandi</p>
+                    <p class="parents">Daughter of Mr. Babul Nandi and Mrs. Bina Datta</p>
+                </div>
+                <div class="couple-divider">
+                    <div class="heart-container">
+                        <i class="fas fa-heart"></i>
+                        <div class="heart-glow"></div>
+                    </div>
+                </div>
+                <div class="groom">
+                    <div class="photo-frame">
+                        <div class="photo-container">
+                            <img src="groom.jpg" alt="Ram Roy" class="couple-photo">
+                            <div class="photo-overlay"></div>
+                        </div>
+                        <div class="frame-decoration top"></div>
+                        <div class="frame-decoration bottom"></div>
+                        <div class="frame-decoration left"></div>
+                        <div class="frame-decoration right"></div>
+                    </div>
+                    <div class="name-container">
+                        <h2>The Groom</h2>
+                        <div class="name-decoration left"></div>
+                        <div class="name-decoration right"></div>
+                    </div>
+                    <p class="name">Ram Roy</p>
+                    <p class="parents">Son of Mr. Ratan Roy and Mrs. Sheuli Roy</p>
+                </div>
+            </div>
+
+            <div class="event-details">
+                <div class="detail-item" onclick="addToCalendar()">
+                    <div class="icon-wrapper">
+                        <i class="far fa-calendar-alt"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Date & Time</h3>
+                    <p class="highlight">31st July 2025</p>
+                    <p>Afternoon</p>
+                    <p class="click-hint">Click to add to calendar</p>
+                </div>
+                <div class="detail-item" onclick="openMaps()">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3>Venue</h3>
+                    <p class="highlight">Taj Mahal</p>
+                    <p>148-01 Hillside Ave. Jamaica, NY 11435</p>
+                    <p class="click-hint">Click to open in maps</p>
+                </div>
+            </div>
+
+            <div class="rsvp-section">
+                <div class="floral-divider">
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h2 class="rsvp-title">RSVP</h2>
+                <p class="rsvp-subtitle">Please respond by June 30th, 2025</p>
+                
+                <button onclick="openRSVPModal()" class="rsvp-button">
+                    <span>RSVP Now</span>
+                    <i class="fas fa-heart"></i>
+                </button>
+            </div>
+
+            <div class="footer">
+                <div class="floral-divider">
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <p>We look forward to celebrating with you!</p>
+            </div>
+
+            <div class="ornament bottom-left"></div>
+            <div class="ornament bottom-right"></div>
+        </div>
+    </div>
+
+    <div class="animated-section bottom-section">
+        <div class="section-image">
+            <img src="Photos/Footer.jpg" alt="Wedding Photo" class="cover-image">
+            <div class="image-overlay"></div>
+        </div>
+        <div class="farewell-text">
+            <h1>We Can't Wait to Celebrate With You</h1>
+            <p>Scroll up to see the details again</p>
+        </div>
+        <div class="scroll-hint">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+    </div>
+
+    <script>
+        function addToCalendar() {
+            const event = {
+                title: 'Panchami & Ram Wedding',
+                start: '2025-07-31T12:00:00',
+                end: '2025-07-31T23:00:00',
+                location: 'Taj Mahal, 148-01 Hillside Ave. Jamaica, NY 11435',
+                description: 'Join us in celebrating the wedding of Panchami & Ram'
+            };
+
+            const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&location=${encodeURIComponent(event.location)}&details=${encodeURIComponent(event.description)}`;
+
+            Swal.fire({
+                title: 'Add to Calendar',
+                text: 'Would you like to add this event to your calendar?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, add it!',
+                cancelButtonText: 'No, thanks'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.open(calendarUrl, '_blank');
+                }
+            });
+        }
+
+        function openMaps() {
+            const venue = 'Taj Mahal, 148-01 Hillside Ave. Jamaica, NY 11435';
+            const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue)}`;
+            window.open(mapsUrl, '_blank');
+        }
+
+        // Create floating elements
+        function createFloatingElements(container, type) {
+            for (let i = 0; i < 30; i++) {
+                const element = document.createElement('div');
+                element.className = `floating-element ${type}`;
+                
+                // Random vertical position
+                const verticalPosition = type === 'heart' 
+                    ? Math.random() * 30  // Hearts appear from top
+                    : 100 - Math.random() * 30;  // Flowers appear from bottom
+                
+                element.style.top = `${verticalPosition}%`;
+                element.style.animationDuration = `${Math.random() * 10 + 15}s`; // Slower animation
+                element.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Add slight vertical movement
+                const startY = type === 'heart' ? -20 : 20;
+                const endY = type === 'heart' ? 20 : -20;
+                element.style.setProperty('--start-y', `${startY}px`);
+                element.style.setProperty('--end-y', `${endY}px`);
+                
+                container.appendChild(element);
+            }
+        }
+
+        // Initialize floating elements with a slight delay
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const heartsContainer = document.querySelector('.floating-hearts');
+                const flowersContainer = document.querySelector('.floating-flowers');
+                createFloatingElements(heartsContainer, 'heart');
+                createFloatingElements(flowersContainer, 'flower');
+            }, 500);
+        });
+
+        function openRSVPModal() {
+            Swal.fire({
+                title: '<h2 class="rsvp-modal-title">RSVP to Our Wedding</h2>',
+                html: `
+                    <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Will you attend? *</label>
+                            <div class="attendance-options">
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="attending" required>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Joyfully Accept</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="attendance" value="not-attending" required>
+                                    <span class="radio-custom"></span>
+                                    <span class="radio-text">Regretfully Decline</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group guest-count" style="display: none;">
+                            <label for="guests">Number of Guests (including yourself) *</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group dietary-group" style="display: none;">
+                            <label for="dietary">Dietary Restrictions</label>
+                            <textarea id="dietary" name="dietary" placeholder="Please let us know of any dietary restrictions or allergies"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message for the Couple (Optional)</label>
+                            <textarea id="message" name="message" placeholder="Share your wishes or any special requests"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-button">
+                            <span>Send RSVP</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                `,
+                showCloseButton: true,
+                showConfirmButton: false,
+                showCancelButton: false,
+                customClass: {
+                    popup: 'rsvp-modal',
+                    closeButton: 'rsvp-modal-close',
+                    title: 'rsvp-modal-title'
+                },
+                didOpen: () => {
+                    // Add event listeners for attendance radio buttons
+                    document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+                        radio.addEventListener('change', (e) => {
+                            const guestCount = document.querySelector('.guest-count');
+                            const dietaryGroup = document.querySelector('.dietary-group');
+                            
+                            if (e.target.value === 'attending') {
+                                guestCount.style.display = 'block';
+                                dietaryGroup.style.display = 'block';
+                            } else {
+                                guestCount.style.display = 'none';
+                                dietaryGroup.style.display = 'none';
+                            }
+                        });
+                    });
+                }
+            });
+        }
+
+        // RSVP Form Handling
+        function handleRSVP(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Validate form
+            if (!data.name || !data.email || !data.attendance) {
+                Swal.fire({
+                    title: 'Please Complete All Required Fields',
+                    text: 'Name, email, and attendance status are required.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+            
+            // Show loading state
+            const submitButton = form.querySelector('.submit-button');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+            
+            // IMPORTANT: Replace this URL with your Google Apps Script deployment URL
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            
+            // Send data to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(res => {
+                if (res.result === 'success') {
+                    // Close the modal
+                    Swal.close();
+                    
+                    // Show success message
+                    Swal.fire({
+                        title: 'Thank You!',
+                        text: 'Your RSVP has been received. We look forward to celebrating with you!',
+                        icon: 'success',
+                        confirmButtonText: 'Wonderful!',
+                        customClass: {
+                            popup: 'rsvp-success-modal'
+                        }
+                    });
+                } else {
+                    // If the script returned an error
+                    throw new Error(res.error || 'Something went wrong');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Oops!',
+                    text: 'There was an error submitting your RSVP. Please try again or contact us directly.',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            })
+            .finally(() => {
+                // Reset button
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html> 
