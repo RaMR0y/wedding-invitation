@@ -244,13 +244,12 @@
                 html: `
                     <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            <label for="firstname">First Name *</label>
+                            <input type="text" id="firstname" name="firstname" required placeholder="Enter your first name">
                         </div>
-                        
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            <label for="lastname">Last Name *</label>
+                            <input type="text" id="lastname" name="lastname" required placeholder="Enter your last name">
                         </div>
                         
                         <div class="form-group">
@@ -276,17 +275,13 @@
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
-                        </div>
-                        
-                        <div class="form-group dietary-group" style="display: none;">
-                            <label for="dietary">Dietary Restrictions</label>
-                            <textarea id="dietary" name="dietary" placeholder="Please let us know of any dietary restrictions or allergies"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message for the Couple (Optional)</label>
-                            <textarea id="message" name="message" placeholder="Share your wishes or any special requests"></textarea>
                         </div>
                         
                         <button type="submit" class="submit-button">
@@ -308,14 +303,11 @@
                     document.querySelectorAll('input[name="attendance"]').forEach(radio => {
                         radio.addEventListener('change', (e) => {
                             const guestCount = document.querySelector('.guest-count');
-                            const dietaryGroup = document.querySelector('.dietary-group');
                             
                             if (e.target.value === 'attending') {
                                 guestCount.style.display = 'block';
-                                dietaryGroup.style.display = 'block';
                             } else {
                                 guestCount.style.display = 'none';
-                                dietaryGroup.style.display = 'none';
                             }
                         });
                     });
@@ -332,10 +324,10 @@
             const data = Object.fromEntries(formData.entries());
             
             // Validate form
-            if (!data.name || !data.email || !data.attendance) {
+            if (!data.firstname || !data.lastname || !data.attendance) {
                 Swal.fire({
                     title: 'Please Complete All Required Fields',
-                    text: 'Name, email, and attendance status are required.',
+                    text: 'First name, last name, and attendance status are required.',
                     icon: 'warning',
                     confirmButtonText: 'OK'
                 });
@@ -349,7 +341,7 @@
             submitButton.disabled = true;
             
             // IMPORTANT: Replace this URL with your Google Apps Script deployment URL
-            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwobp8S-c_wE_bauf85n0BbUe0LrTgdZjfI1nXU93daNVdfwXaHkulhc1tTYUDXC47g5Q/exec';
             
             // Send data to Google Sheets
             fetch(GOOGLE_SCRIPT_URL, {

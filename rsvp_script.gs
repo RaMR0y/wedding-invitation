@@ -7,10 +7,10 @@ function doPost(e) {
       var sheetName = "RSVPs";
       var sheet = doc.getSheetByName(sheetName);
 
-      // If the sheet doesn't exist, create it with headers.
+      // If the sheet doesn't exist, create it with new headers.
       if (!sheet) {
         sheet = doc.insertSheet(sheetName);
-        sheet.getRange(1, 1, 1, 7).setValues([["Timestamp", "Name", "Email", "Attendance", "Guests", "Dietary", "Message"]]);
+        sheet.getRange(1, 1, 1, 5).setValues([["Timestamp", "First Name", "Last Name", "Attendance", "Guests"]]);
         // Freeze the header row
         sheet.setFrozenRows(1);
       }
@@ -21,11 +21,12 @@ function doPost(e) {
       var data = JSON.parse(e.postData.contents);
       
       var newRow = headers.map(function(header) {
-        var a = header.toLowerCase();
-        if (a === 'timestamp') {
+        // convert header to lowercase and remove spaces to match form data keys
+        var key = header.toLowerCase().replace(/ /g, '');
+        if (key === 'timestamp') {
           return new Date();
         }
-        return data[a] || ""; // Match form data to sheet headers
+        return data[key] || ""; // Match form data to sheet headers
       });
       
       sheet.getRange(nextRow, 1, 1, newRow.length).setValues([newRow]);
