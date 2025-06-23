@@ -14,12 +14,11 @@
 <body>
     <div class="animated-section top-section">
         <div class="section-image">
-            <img src="Photos/Header.jpg" alt="Wedding Photo" class="cover-image">
+            <img src="Photos/Front.png" alt="Wedding Photo" class="cover-image">
             <div class="image-overlay"></div>
         </div>
         <div class="welcome-text">
             <h1>Welcome to Our Wedding</h1>
-            <p>Scroll down to discover our story</p>
         </div>
         <div class="scroll-hint">
             <i class="fas fa-chevron-down"></i>
@@ -28,80 +27,28 @@
 
     <div class="invitation-card">
         <div class="card-content">
-            <div class="corner-decoration corner-top-left"></div>
-            <div class="corner-decoration corner-top-right"></div>
-            <div class="corner-decoration corner-bottom-left"></div>
-            <div class="corner-decoration corner-bottom-right"></div>
-            <div class="geometric-shape shape-circle" style="top: -75px; right: -75px;"></div>
-            <div class="geometric-shape shape-square" style="bottom: -50px; left: -50px;"></div>
             <div class="ornament top-left"></div>
             <div class="ornament top-right"></div>
-            
-            <div class="header">
-                <div class="floral-divider top">
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h1 class="names">Panchami & Ram</h1>
-                <div class="separator">
-                    <span class="separator-dot"></span>
-                    <span class="separator-line"></span>
-                    <span class="separator-dot"></span>
-                </div>
-                <p class="date">31st July 2025</p>
-                <p class="location">Taj Mahal</p>
-                <div class="floral-divider bottom">
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                </div>
-            </div>
 
-            <div class="couple-info">
-                <div class="bride">
-                    <div class="photo-frame">
-                        <div class="photo-container">
-                            <img src="bride.jpg" alt="Panchami Nandi" class="couple-photo">
-                            <div class="photo-overlay"></div>
-                        </div>
-                        <div class="frame-decoration top"></div>
-                        <div class="frame-decoration bottom"></div>
-                        <div class="frame-decoration left"></div>
-                        <div class="frame-decoration right"></div>
+            <div class="top-invitation-section">
+                <div class="invitation-content">
+                    <div class="parents-names">
+                        Mr Babul Nandi and Ms Bina Datta
                     </div>
-                    <div class="name-container">
-                        <h2>The Bride</h2>
-                        <div class="name-decoration left"></div>
-                        <div class="name-decoration right"></div>
+                    <div class="invitation-text">
+                        cordially invite your gracious presence and blessings<br>
+                        on the auspicious occasion of
                     </div>
-                    <p class="name">Panchami Nandi</p>
-                    <p class="parents">Daughter of Mr. Babul Nandi and Mrs. Bina Datta</p>
-                </div>
-                <div class="couple-divider">
-                    <div class="heart-container">
-                        <i class="fas fa-heart"></i>
-                        <div class="heart-glow"></div>
+                    <div class="event-title">The Wedding Ceremony</div>
+                    <div class="bride-groom-info">
+                        of their only daughter,<br>
+                        <span class="bride-name">Panchami Nandi</span><br>
+                        with<br>
+                        <span class="groom-name">Ram Roy</span>
                     </div>
-                </div>
-                <div class="groom">
-                    <div class="photo-frame">
-                        <div class="photo-container">
-                            <img src="groom.jpg" alt="Ram Roy" class="couple-photo">
-                            <div class="photo-overlay"></div>
-                        </div>
-                        <div class="frame-decoration top"></div>
-                        <div class="frame-decoration bottom"></div>
-                        <div class="frame-decoration left"></div>
-                        <div class="frame-decoration right"></div>
+                    <div class="parentage-info">
+                        only son of Mr Ratan Roy and Sheuli Roy
                     </div>
-                    <div class="name-container">
-                        <h2>The Groom</h2>
-                        <div class="name-decoration left"></div>
-                        <div class="name-decoration right"></div>
-                    </div>
-                    <p class="name">Ram Roy</p>
-                    <p class="parents">Son of Mr. Ratan Roy and Mrs. Sheuli Roy</p>
                 </div>
             </div>
 
@@ -128,28 +75,11 @@
                 </div>
             </div>
 
-            <div class="rsvp-section">
-                <div class="floral-divider">
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <h2 class="rsvp-title">RSVP</h2>
-                <p class="rsvp-subtitle">Please respond by June 30th, 2025</p>
-                
+            <div class="rsvp-section">                
                 <button onclick="openRSVPModal()" class="rsvp-button">
                     <span>RSVP Now</span>
                     <i class="fas fa-heart"></i>
                 </button>
-            </div>
-
-            <div class="footer">
-                <div class="floral-divider">
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                    <i class="fas fa-leaf"></i>
-                </div>
-                <p>We look forward to celebrating with you!</p>
             </div>
 
             <div class="ornament bottom-left"></div>
@@ -164,7 +94,6 @@
         </div>
         <div class="farewell-text">
             <h1>We Can't Wait to Celebrate With You</h1>
-            <p>Scroll up to see the details again</p>
         </div>
         <div class="scroll-hint">
             <i class="fas fa-chevron-up"></i>
@@ -258,12 +187,12 @@
                                 <label class="radio-label">
                                     <input type="radio" name="attendance" value="attending" required>
                                     <span class="radio-custom"></span>
-                                    <span class="radio-text">Joyfully Accept</span>
+                                    <span class="radio-text">Attending</span>
                                 </label>
                                 <label class="radio-label">
                                     <input type="radio" name="attendance" value="not-attending" required>
                                     <span class="radio-custom"></span>
-                                    <span class="radio-text">Regretfully Decline</span>
+                                    <span class="radio-text">Not Attending</span>
                                 </label>
                             </div>
                         </div>
@@ -341,10 +270,10 @@
             submitButton.disabled = true;
             
             // IMPORTANT: Replace this URL with your Google Apps Script deployment URL
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwobp8S-c_wE_bauf85n0BbUe0LrTgdZjfI1nXU93daNVdfwXaHkulhc1tTYUDXC47g5Q/exec';
+            const SPREADSHEET_ID = '1Jb9KRBDcyIkLo5yWEYlIkB1_L6kQIPD615YVumvbmRM';
             
             // Send data to Google Sheets
-            fetch(GOOGLE_SCRIPT_URL, {
+            fetch(`https://script.google.com/macros/s/AKfycbylJvDxHWlEkjEMX4-3cC8y5mbzOKaRvi1r8YyAHXrLvR_wRiq6_Cwkh9ISn60WJSkG/exec`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
