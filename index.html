@@ -60,7 +60,7 @@
                     </div>
                     <h3>Date & Time</h3>
                     <p class="highlight">31st July 2025</p>
-                    <p>Afternoon</p>
+                    <p>6:00 PM</p>
                     <p class="click-hint">Click to add to calendar</p>
                 </div>
                 <div class="detail-item" onclick="openMaps()">
@@ -69,8 +69,8 @@
                         <div class="icon-glow"></div>
                     </div>
                     <h3>Venue</h3>
-                    <p class="highlight">Taj Mahal</p>
-                    <p>148-01 Hillside Ave. Jamaica, NY 11435</p>
+                    <p class="highlight">Taj Mahal Party Hall</p>
+                    <p>148-01 Hillside Ave., Briarwood, NY 11435</p>
                     <p class="click-hint">Click to open in maps</p>
                 </div>
             </div>
@@ -104,9 +104,9 @@
         function addToCalendar() {
             const event = {
                 title: 'Panchami & Ram Wedding',
-                start: '2025-07-31T12:00:00',
+                start: '2025-07-31T18:00:00',
                 end: '2025-07-31T23:00:00',
-                location: 'Taj Mahal, 148-01 Hillside Ave. Jamaica, NY 11435',
+                location: 'Taj Mahal Party Hall, 148-01 Hillside Ave., Briarwood, NY 11435',
                 description: 'Join us in celebrating the wedding of Panchami & Ram'
             };
 
@@ -127,7 +127,7 @@
         }
 
         function openMaps() {
-            const venue = 'Taj Mahal, 148-01 Hillside Ave. Jamaica, NY 11435';
+            const venue = '148-01 Hillside Ave., Briarwood, NY 11435';
             const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue)}`;
             window.open(mapsUrl, '_blank');
         }
@@ -223,15 +223,6 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                        </div>
-                        
-                        <!-- Add email field for confirmation -->
-                        <div class="form-group">
-                            <label for="email">Email (for confirmation) *</label>
-                            <input type="email" id="email" name="email" required 
-                                   placeholder="Enter your email"
-                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
-                                   oninput="this.setCustomValidity('')">
                         </div>
                         
                         <button type="submit" class="submit-button">
