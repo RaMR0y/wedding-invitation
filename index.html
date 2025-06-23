@@ -171,21 +171,33 @@
             Swal.fire({
                 title: '<h2 class="rsvp-modal-title">RSVP to Our Wedding</h2>',
                 html: `
-                    <form id="rsvpForm" class="rsvp-form" onsubmit="handleRSVP(event)">
+                    <form id="rsvpForm" class="rsvp-form" action="https://formspree.io/f/mpwrydny" method="POST">
+                        <!-- Update success URL to the thanks.html page -->
+                        <input type="hidden" name="_next" value="https://ramr0y.github.io/wedding-invitation/thanks.html">
+                        
                         <div class="form-group">
                             <label for="firstname">First Name *</label>
-                            <input type="text" id="firstname" name="firstname" required placeholder="Enter your first name">
+                            <input type="text" id="firstname" name="firstname" required 
+                                   placeholder="Enter your first name"
+                                   oninvalid="this.setCustomValidity('Please enter your first name')"
+                                   oninput="this.setCustomValidity('')">
                         </div>
+                        
                         <div class="form-group">
                             <label for="lastname">Last Name *</label>
-                            <input type="text" id="lastname" name="lastname" required placeholder="Enter your last name">
+                            <input type="text" id="lastname" name="lastname" required 
+                                   placeholder="Enter your last name"
+                                   oninvalid="this.setCustomValidity('Please enter your last name')"
+                                   oninput="this.setCustomValidity('')">
                         </div>
                         
                         <div class="form-group">
                             <label>Will you attend? *</label>
                             <div class="attendance-options">
                                 <label class="radio-label">
-                                    <input type="radio" name="attendance" value="attending" required>
+                                    <input type="radio" name="attendance" value="attending" required
+                                           oninvalid="this.setCustomValidity('Please select your attendance')"
+                                           oninput="this.setCustomValidity('')">
                                     <span class="radio-custom"></span>
                                     <span class="radio-text">Attending</span>
                                 </label>
@@ -213,11 +225,26 @@
                             </select>
                         </div>
                         
+                        <!-- Add email field for confirmation -->
+                        <div class="form-group">
+                            <label for="email">Email (for confirmation) *</label>
+                            <input type="email" id="email" name="email" required 
+                                   placeholder="Enter your email"
+                                   oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                   oninput="this.setCustomValidity('')">
+                        </div>
+                        
                         <button type="submit" class="submit-button">
                             <span>Send RSVP</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
+
+                    <!-- Create a simple thank you page -->
+                    <div id="thankYouMessage" style="display: none;">
+                        <h2>Thank You!</h2>
+                        <p>Your RSVP has been received. We look forward to celebrating with you!</p>
+                    </div>
                 `,
                 showCloseButton: true,
                 showConfirmButton: false,
@@ -235,8 +262,10 @@
                             
                             if (e.target.value === 'attending') {
                                 guestCount.style.display = 'block';
+                                document.getElementById('guests').required = true;
                             } else {
                                 guestCount.style.display = 'none';
+                                document.getElementById('guests').required = false;
                             }
                         });
                     });
@@ -244,76 +273,78 @@
             });
         }
 
-        // RSVP Form Handling
-        function handleRSVP(event) {
-            event.preventDefault();
+        // Enhanced form handling with JavaScript
+        if (document.getElementById('rsvpForm')) {
+            const form = document.getElementById('rsvpForm');
             
-            const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
-            
-            // Validate form
-            if (!data.firstname || !data.lastname || !data.attendance) {
-                Swal.fire({
-                    title: 'Please Complete All Required Fields',
-                    text: 'First name, last name, and attendance status are required.',
-                    icon: 'warning',
-                    confirmButtonText: 'OK'
+            // Show/hide guest count based on attendance selection
+            document.querySelectorAll('input[name="attendance"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const guestCount = document.querySelector('.guest-count');
+                    if (e.target.value === 'attending') {
+                        guestCount.style.display = 'block';
+                        document.getElementById('guests').required = true;
+                    } else {
+                        guestCount.style.display = 'none';
+                        document.getElementById('guests').required = false;
+                    }
                 });
-                return;
-            }
-            
-            // Show loading state
-            const submitButton = form.querySelector('.submit-button');
-            const originalButtonText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitButton.disabled = true;
-            
-            // IMPORTANT: Replace this URL with your Google Apps Script deployment URL
-            const SPREADSHEET_ID = '1Jb9KRBDcyIkLo5yWEYlIkB1_L6kQIPD615YVumvbmRM';
-            
-            // Send data to Google Sheets
-            fetch(`https://script.google.com/macros/s/AKfycbylJvDxHWlEkjEMX4-3cC8y5mbzOKaRvi1r8YyAHXrLvR_wRiq6_Cwkh9ISn60WJSkG/exec`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(res => {
-                if (res.result === 'success') {
-                    // Close the modal
-                    Swal.close();
-                    
-                    // Show success message
-                    Swal.fire({
-                        title: 'Thank You!',
-                        text: 'Your RSVP has been received. We look forward to celebrating with you!',
-                        icon: 'success',
-                        confirmButtonText: 'Wonderful!',
-                        customClass: {
-                            popup: 'rsvp-success-modal'
-                        }
-                    });
-                } else {
-                    // If the script returned an error
-                    throw new Error(res.error || 'Something went wrong');
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                Swal.fire({
-                    title: 'Oops!',
-                    text: 'There was an error submitting your RSVP. Please try again or contact us directly.',
-                    icon: 'error',
-                    confirmButtonText: 'Try Again'
+            });
+
+            // Handle form submission with enhanced UX
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitButton = form.querySelector('.submit-button');
+                const originalButtonText = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitButton.disabled = true;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Close the modal if it exists
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'Thank You!',
+                            text: 'Your RSVP has been received. We look forward to celebrating with you!',
+                            icon: 'success',
+                            confirmButtonText: 'Wonderful!',
+                            customClass: {
+                                popup: 'rsvp-success-modal'
+                            }
+                        });
+                    } else {
+                        // Fallback if SweetAlert is not available
+                        form.style.display = 'none';
+                        document.getElementById('thankYouMessage').style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'Oops!',
+                            text: 'There was an error submitting your RSVP. Please try again or contact us directly.',
+                            icon: 'error',
+                            confirmButtonText: 'Try Again'
+                        });
+                    } else {
+                        alert('There was an error submitting your RSVP. Please try again or contact us directly.');
+                    }
+                })
+                .finally(() => {
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
                 });
-            })
-            .finally(() => {
-                // Reset button
-                submitButton.innerHTML = originalButtonText;
-                submitButton.disabled = false;
             });
         }
     </script>
